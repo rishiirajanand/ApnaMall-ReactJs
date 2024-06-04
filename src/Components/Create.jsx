@@ -21,7 +21,7 @@ function Create() {
         return;
       }
     const product = {
-        id : 22,
+        id : nanoid(),
         image,
         title,
         price,
