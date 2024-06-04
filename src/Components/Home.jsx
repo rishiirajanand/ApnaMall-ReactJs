@@ -10,7 +10,7 @@ const Home = () => {
   const { search } = useLocation();
   const category = decodeURIComponent(search.split("=")[1]);
   const [filterCategory, setFilterCategory] = useState(products)
-
+  
 
   const getProductCategory = async () => {
     try {
@@ -41,7 +41,7 @@ const Home = () => {
 
       <div className="w-[85%] ml-[18%] h-full p-5 overflow-y-scroll flex felx-col flex-wrap gap-6">
         { 
-            filterCategory && filterCategory.map((product) => (
+             filterCategory && filterCategory.map((product) => (
                 <Link
                     to={`/details/${product.id}`}
                     key={product.id}
@@ -55,6 +55,7 @@ const Home = () => {
                     </div>
                 </Link>
             ))
+            
         }
       </div>
     </>

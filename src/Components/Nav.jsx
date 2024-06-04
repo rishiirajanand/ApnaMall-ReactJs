@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
   const [products] = useContext(ProductsContext);
-
   let dist_category = products && products.reduce((ac, cv) => [...ac,cv.category], []);
   dist_category = [...new Set(dist_category)]
 
