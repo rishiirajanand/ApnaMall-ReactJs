@@ -30,7 +30,8 @@ const Home = () => {
         setFilterCategory(products)
     }
     if (category != 'undefined') {
-      getProductCategory();
+      // getProductCategory();
+      setFilterCategory(products.filter(p => p.category == category))
     }
   }, [category, products]);
 

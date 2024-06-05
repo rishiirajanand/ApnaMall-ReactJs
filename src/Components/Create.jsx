@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ProductsContext } from "../utils/Context";
 import { nanoid } from "nanoid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 function Create() {
@@ -12,6 +13,8 @@ function Create() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [description, setdescription] = useState("");
+
+  const navigate = useNavigate()
 
   const addProductHandler = (e)=>{
     e.preventDefault();
@@ -29,7 +32,11 @@ function Create() {
         description
     }
     setProducts([...products, product]);
-    console.log(products)
+    localStorage.setItem('products', JSON.stringify([...products, product]));
+
+    toast.success('Product Added successfully');
+
+    navigate('/');
   }
 
   return (

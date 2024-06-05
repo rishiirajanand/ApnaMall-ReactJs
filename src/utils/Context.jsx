@@ -5,19 +5,19 @@ export const ProductsContext = createContext();
 
 function Context(props) {
 
-    const [products, setProducts] = useState(null);
+    const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')) || null);
     
     const getData = async ()=>{
-        try {
+        // try {
 
-            const res = await axios.get('/products');
-            const data = await res.data
+        //     const res = await axios.get('/products');
+        //     const data = await res.data
             
-            setProducts(data)
+        //     setProducts(data)
 
-        } catch (error) {
-            console.log('Error : ', error)
-        }
+        // } catch (error) {
+        //     console.log('Error : ', error)
+        // }
     }
 
     useEffect(()=>{
